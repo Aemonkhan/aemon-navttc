@@ -54,11 +54,59 @@
 //     newItem.appendChild(text)
 //    document.getElementById("todoList").appendChild(newItem)
 //   }
-function addPara(){
-    var x=document.createElement('p')
-    var text = document.createTextNode('new paragraph')
-    x.appendChild(text)
-    var div = document.getElementById('mydiv');
-    // div.appendChild(x)
-    div.insertBefore(x,div.firstChild.nextSibling)
+// function addPara(){
+//     var x=document.createElement('p')
+//     var text = document.createTextNode('new paragraph')
+//     x.appendChild(text)
+//     var div = document.getElementById('mydiv');
+//     // div.appendChild(x)
+//     div.insertBefore(x,div.firstChild.nextSibling)
+// }
+// Question 1 in object
+var student = {
+    name : "David Rayy",
+    sclass : "VI",
+    rollno : 12 };
+ for(var key in student){  
+    console.log(key+' '+student[key])
+ } 
+//  question 2 in object
+var library = [ 
+    {
+        title: 'Bill Gates',
+        author: 'The Road Ahead',
+        readingStatus: true
+    },
+    {
+        title: 'Steve Jobs',
+        author: 'Walter Isaacson',
+        readingStatus: true
+    },
+    {
+        title: 'Mockingjay: The Final Book of The Hunger Games',
+        author: 'Suzanne Collins',
+        readingStatus: false
+    }];
+    for (var key in library){
+      console.log(key+' '+library[key].author)  
+    }
+function Employee(name,salary,absent){
+    this.name=name;
+    this.salary=salary;
+    this.absent=absent;
+Employee.prototype.bonus =0;
+Employee.prototype.salaryCalc=function(){
+        if(this.absent>2){
+            this.salary=this.salary*.8;
+            console.log(this.salary+' '+'is your salary')
+        }
+    }
 }
+var Employee1=new Employee('aemon',5000,4);
+Employee1.salaryCalc()
+var Employee2=new Employee('abc',5000,4);
+var Employee3=new Employee('xyz',5000,4);
+Employee1.bonus=2000;
+console.log(Employee1)
+console.log(Employee2)
+console.log(Employee3)
