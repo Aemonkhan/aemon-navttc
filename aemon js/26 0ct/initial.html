@@ -1,0 +1,63 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Css Animation</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+
+            background-color: aqua;
+            margin: auto;
+            /* animation-name: boxanim;
+            animation-duration: 2s;
+
+
+            animation-iteration-count: infinite;
+            animation-delay: 1s; */
+            animation: bounce 2s infinite;
+
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            40%,
+            60%,
+            80%,
+            100% {
+                -webkit-transform: translateY(0);
+            }
+
+            50% {
+                -webkit-transform: translateY(-75px);
+            }
+        }
+
+/*         
+        @keyframes boxanim {
+            from {
+                background-color: orange;
+                transform: translatex(50px);
+
+
+            }
+
+            to {
+                background-color: red;
+
+                transform: rotate(45deg);
+            }
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>
