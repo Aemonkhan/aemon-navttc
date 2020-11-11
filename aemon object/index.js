@@ -13,7 +13,6 @@ function searchRecipe() {
             // Your code for handling the data you get from the API
             console.log(data.meals)
             const recipesArr = data.meals;
-
             var row = document.getElementById('row');
 
             for (let i = 0; i < recipesArr.length; i++) {
@@ -22,11 +21,12 @@ function searchRecipe() {
                 var text = document.createTextNode(recipesArr[i].strMeal)
                 div.appendChild(text)
                 row.appendChild(div)
-                var img = document.createElement('img')
-                div.className = 'img';
-                var img = document.createTextNode(recipesArr[i].strMealThumb)
+                var img = document.createElement('img');
+                img.setAttribute("src", recipesArr[i].strMealThumb);
+                img.setAttribute("width", "200");
+                img.setAttribute("height", "150");
                 div.appendChild(img)
-                row.appendChild = (div)
+                row.appendChild(div)
             }
         })
         .catch(function (error) {
@@ -35,3 +35,17 @@ function searchRecipe() {
         });
     search.value = '';
 }
+function searchRandom() {
+    var search = document.getElementById('searchRandom');
+    console.log(searchRandom.value)
+    var api = `https://www.themealdb.com/api/json/v1/1/search.php?s=${searchRandom.value}`
+    console.log(api)
+}
+fetch(api) // Call the fetch function passing the url of the API as a parameter
+    .then(res => res.json())
+    .then(function (data) {
+        // Your code for handling the data you get from the API
+        console.log(data.meals)
+        const recipesArr = data.meals;
+        var row = document.getElementById('row');
+    })
